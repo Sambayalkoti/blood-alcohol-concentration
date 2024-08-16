@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +46,25 @@
       <button type="submit">Calculate BAC</button>
     </form>
 
-    <div class="output-wrapper">
-      <div> Your Blood Concentration is: <span>0.08%</span></div>
-      <div> Safe to drive </div>
+<div class="output-wrapper">
+    <div> Your Blood Concentration is: 
+      <?php 
+      $BAC = $_SESSION['BAC'];
+      echo $BAC;
+      
+      ?>
+      <span> 
+
+      </div>
+      <div><?php if($BAC<=0.08){
+        echo "Safe to Drive";
+       
+    }else{
+       echo "Unsafe to Drive";
+    }
+    ?>
+    </span>
+  </div>
     </div>
   </div>
 </body>
